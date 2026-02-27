@@ -49,7 +49,7 @@ public class array {
      11 20 3 40 25 60 13
      11+20=31
      11+3=13
-     11+20=51
+     11+40=51
      .......
      40+60=100 maximum sum
      Use two for loop
