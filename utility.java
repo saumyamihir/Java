@@ -151,20 +151,74 @@
 
 
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
+// import java.time.LocalDate;
+// import java.time.LocalTime;
+// import java.time.format.DateTimeFormatter;
 
-public class utility{
-    public static void main(String[] args) {
-        LocalDate date = LocalDate.now();
-        DateTimeFormatter f = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        System.out.println("Current date is : " + date.format(f));
+// public class utility{
+//     public static void main(String[] args) {
+//         LocalDate date = LocalDate.now();
+//         DateTimeFormatter f = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+//         System.out.println("Current date is : " + date.format(f));
 
 
-        LocalTime time = LocalTime.now();
-        DateTimeFormatter f1 = DateTimeFormatter.ofPattern("HH:mm:ss");
-        System.out.println("Time is : "+ time.format(f1));
+//         LocalTime time = LocalTime.now();
+//         DateTimeFormatter f1 = DateTimeFormatter.ofPattern("HH:mm:ss");
+//         System.out.println("Time is : "+ time.format(f1));
+//     }
+// }
+
+
+
+// Calendar
+// inside the java.util.Calendar;
+
+import java.util.Calendar;
+import java.util.TimeZone; //for time zone 
+
+class utility
+{
+    public static void main(String[]args)
+    {
+        Calendar c = Calendar.getInstance();
+        System.out.println("Current Time : "+ c.getTime());
+        System.out.println("Current year : "+c.get(Calendar.YEAR));
+        
+        // In java Calendar Library Month Start From Zero
+        System.out.println("Current Month : "+(c.get(Calendar.MONTH)+1));
+
+        // Date or Current Date 
+        System.out.println("Current Date : "+c.get(Calendar.DATE));
+
+        // Hour Minute Second
+        System.out.println("Curren Hour : "+ c.get(Calendar.HOUR));
+        System.out.println("Curren Minute : "+ c.get(Calendar.MINUTE));
+        System.out.println("Curren Second : "+ c.get(Calendar.SECOND));
+
+
+
+        // Find the Curent Time with help of TimeZone
+        // Currrent Api Or Classes -> ZoneId , ZoneDateTime
+
+        TimeZone id = TimeZone.getTimeZone("Asia/Kolkata");
+        Calendar c1 = Calendar.getInstance(id);
+        System.out.println("Current Time in Asia/Kolkata : "+ c1.getTime());
+
+        // Europe/London
+        TimeZone id1 = TimeZone.getTimeZone("Europe/London");
+        Calendar c2 = Calendar.getInstance(id1);
+        System.out.println("Current Time in Europe/London : "+ c2.getTime());
+
+
+        // America/New York
+        TimeZone id2 = TimeZone.getTimeZone("America/New York");
+        Calendar c3 = Calendar.getInstance(id2);
+        System.out.println("Current Time in America/New York : "+ c3.getTime());
+
+        
+
+
+
     }
 }
 
