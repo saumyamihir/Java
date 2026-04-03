@@ -215,10 +215,6 @@ class utility
         Calendar c3 = Calendar.getInstance(id2);
         System.out.println("Current Time in America/New York : "+ c3.getTime());
 
-        
-
-
-
     }
 }
 
