@@ -31,9 +31,6 @@
 //     }
 // }
  
-// throw 
-// throws
-
 
 
 // NullPointer Exception
@@ -142,22 +139,229 @@
 //         }
 //     }
 //  }
-// IOException
+
+
+
 
 // ClassNotFoundException
-import java.util.*;
-class test{
+// import java.util.*;
+// class test{
     
-}
-class Exception{
-    public static void main(String[] args) {
-        try{
-        Class.forName("test");
-        System.out.println("class is found ");
-        }catch(ClassNotFoundException e){
-            System.out.println((e.getMessage()));
-            System.out.println("We are getting ClassNotFoundException");
+// }
+// class Exception{
+//     public static void main(String[] args) {
+//         try{
+//         Class.forName("test");
+//         System.out.println("class is found ");
+//         }catch(ClassNotFoundException e){
+//             System.out.println((e.getMessage()));
+//             System.out.println("We are getting ClassNotFoundException");
 
+//         }
+//     }
+// }
+
+
+
+// try -> I  which line you are getting Exception inside try block
+
+// try()
+// {
+
+// }
+// catch -> Exception we catch catch block and print the message of Exception.
+
+// catch(ExceptionType e)
+// {
+//     System.out.println(e.getMessage());
+// }
+
+// finally -> it will excecute always in program.
+
+// throw -> with this keyword we create our own message for exception or throw obj of Exeption.
+
+// throw new ArithmeticException("we can not devide any no by zero");
+
+// throws -> it tells method types of excetion can occur inside method.
+
+// void withdraw(int amount) throws IllegalArgumentException,ArithmeticException
+// {
+
+// }
+
+// import java.util.*;
+
+// class Exception {
+//     public static void main(String[] args) {
+//         int a = 6;
+//         int b = 0;
+//         try{
+//         if(b == 0)
+//         {
+//             throw new ArithmeticException("We can not divide any no by zero.");
+//         }
+//         System.out.println(a/b);
+//     }catch(ArithmeticException e){
+//         System.out.println(e.getMessage());
+//         System.out.println("We are getting ArithmeticException");
+//     }
+//     }
+// }
+
+
+
+// MarkChecker
+// import java.util.*;
+// class MarkChecker {
+//     void marcheck(int marks)
+//     {
+//         if(marks < 0)
+//         {
+//             throw new IllegalArgumentException("marks can not be negative");
+//         }
+//         else if(marks > 100)
+//         {
+//             throw new ArithmeticException("marks can not ne greater than 100");
+//         }
+//         else {
+//             System.out.println("marks : "+marks);
+//         }
+//     }
+// } 
+//  class Exception{
+//     public static void main(String[] args) {
+//         Scanner sc = new Scanner(System.in);
+//         MarkChecker obj = new MarkChecker();
+//         int marks = sc.nextInt();
+//         try{
+//         obj.marcheck(marks);
+//         }
+        // Multiple Catch -> We will take more than one Catch Block.
+        // catch(IllegalArgumentException e){
+        //     System.out.println(e.getMessage());
+        // }
+        // catch(ArithmeticException e)
+        // {
+        //     System.out.println(e.getMessage());
+        // }
+    
+        // Multi Catch -> We will only One Catch Block for more than one Exception.
+//         catch(IllegalArgumentException | ArithmeticException  e)
+//         {
+//             System.out.println(e.getMessage());
+//         }
+//     }
+// }  
+
+
+// One try Block we can handle only one Exception.
+
+// import java.util.*;
+//  class Exception {
+//     public static void main(String[] args) {
+//         try{
+//             String str = null;
+//             System.out.println(str.length());
+//             int a = 10/0;
+//         }catch(ArithmeticException | NullPointerException e)
+//         {
+//             System.out.println(e.getMessage());
+//         }
+//     }  
+// }
+
+
+// Custom Exception -> Exception create by user.
+
+// checked Custom Exception -> compile Time  Exception. It will Create bu user.
+// Marks can not be negative -> Create by user
+
+// class MarksCanNotNegativeException extends Exception
+// {
+// }
+
+// import java.util.*;
+// class MarksCanNotNegativeExcepttion extends RuntimeException
+// {
+//     MarksCanNotNegativeExcepttion(String message)
+//     {
+//         super(message);
+//     }
+// }
+// public class Exception{
+//     public static void main(String[] args) {
+
+//         Scanner sc = new Scanner(System.in);
+//         int marks = sc.nextInt();
+//         try{
+//         if(marks < 0)
+//         {
+//             throw new MarksCanNotNegativeExcepttion("Marks Can not be Negative .");
+//         }
+//         }catch(MarksCanNotNegativeExcepttion e){
+//             System.out.println(e.getMessage());
+//         }
+//     }
+// }
+
+
+
+// // unchekced Custom Exception -> Run Time Exception.
+// // devide by zero -> Create by developer . -> Create by Logic
+
+// class DivideByZeroException extends RuntimeException
+// {
+
+// }
+
+// import java.util.*;
+// class DivideByZeroException extends RuntimeException
+// {
+//     DivideByZeroException(String message)
+//     {
+//         super(message);
+//     }
+// }
+// public class Exception{
+//     public static void main(String[] args) {
+//         int a = 6;
+//         int b = 0;
+//         try {
+//         if(b == 0)
+//         {
+//             throw new DivideByZeroException("We can not divide any number by zero");
+//         }
+//     }catch(DivideByZeroException e)
+//     {
+//         System.out.println(e.getMessage());
+//     }
+//     }
+// }
+
+
+
+// Create PasswordLengthException -> Custom Exception
+// length Should be greater than 10
+import java.util.*;
+
+class PasswordLengthException extends RuntimeException {
+    PasswordLengthException(String message) {
+        super(message);
+    }
+}
+
+class Exception {
+    public static void main(String[] args) {
+        String password = "Sami@123";
+
+        try {
+            if (password.length() <= 10) {
+                throw new PasswordLengthException("Password length should be greater than 10");
+            } else {
+                System.out.println("Password is Strong.");
+            }
+        } catch (PasswordLengthException e) {
+            System.out.println(e.getMessage());
         }
     }
 }
