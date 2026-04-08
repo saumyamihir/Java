@@ -342,28 +342,95 @@
 
 // Create PasswordLengthException -> Custom Exception
 // length Should be greater than 10
+// import java.util.*;
+
+// class PasswordLengthException extends RuntimeException {
+//     PasswordLengthException(String message) {
+//         super(message);
+//     }
+// }
+
+// class Exception {
+//     public static void main(String[] args) {
+//         String password = "Sami@123";
+
+//         try {
+//             if (password.length() <= 10) {
+//                 throw new PasswordLengthException("Password length should be greater than 10");
+//             } else {
+//                 System.out.println("Password is Strong.");
+//             }
+//         } catch (PasswordLengthException e) {
+//             System.out.println(e.getMessage());
+//         }
+//     }
+// }
+
+
+// ---------------------------------  QUESTION -------------------------------------------------
+
+// You have to create custom Exception use try catch and finally throw throws
+// You have to take Marks from user if(marks<0 || marks>100 )throw IllegalMarksException
+// if(marks<33) throw FailedException if(marks<50) ->throw AverageException
+
+// IllegalMarksException , FailedException , AverageException these Custom Exception
+
+// use try and catch block for exception Handling
+// finally block -> print message -> marks check successfully.
+
+
 import java.util.*;
 
-class PasswordLengthException extends RuntimeException {
-    PasswordLengthException(String message) {
-        super(message);
-    }
-}
-
-class Exception {
-    public static void main(String[] args) {
-        String password = "Sami@123";
-
-        try {
-            if (password.length() <= 10) {
-                throw new PasswordLengthException("Password length should be greater than 10");
-            } else {
-                System.out.println("Password is Strong.");
-            }
-        } catch (PasswordLengthException e) {
-            System.out.println(e.getMessage());
+class IllegalMarksException extends RuntimeException
+{
+        IllegalMarksException(String message)
+        {
+                super(message);
         }
-    }
+        
+}
+class FailedException extends RuntimeException
+{
+        FailedException(String message)
+        {
+                super(message);
+        }
+}
+class AverageException extends RuntimeException
+{
+        AverageException(String message)
+        {
+                super(message);
+        }
+}
+public class Exception {
+        public static void main(String[] args) throws IllegalMarksException,FailedException,AverageException
+         {
+                Scanner sc = new Scanner(System.in);
+                int marks = sc.nextInt();
+                try{
+                if(marks<0 || marks>100)
+                {
+                        throw new IllegalMarksException("Marks Should be between 0 And 100.");
+                }
+                if(marks<33 )
+                {
+                        throw new FailedException("Failed The Exam.");
+                }
+                if(marks<50 )
+                {
+                        throw new AverageException("Average Marks.");
+                }
+                else{
+                        System.out.println("You Pass The Exam with Good Marks.");
+                }
+        }catch(IllegalMarksException | FailedException | AverageException e)
+        {
+                System.out.println(e.getMessage());
+        }finally{
+                System.out.println("Marks check successfully.");
+        }
+        }
 }
 
 
