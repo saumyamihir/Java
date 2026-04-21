@@ -107,31 +107,93 @@
 // }
 
 
-import java.util.*;
-class NumberThread implements Runnable{
-    private int a;
-    NumberThread(int a)
-    {
-        this.a = a;
-    }
-    public void run()
-    {
-        for(int i = 1; i <= a; i++)
-        {
-            System.out.println(i + " " + Thread.currentThread().getName());
-        }
-    }   
-}
-class MultiThreading {
-    public static void main(String[] args) {
-        Thread t1 = new Thread(new NumberThread(10));
-        Thread t2 = new Thread(new NumberThread(20));
-        t1.start();
-        t2.start();
-    }
-}
+// import java.util.*;
+// class NumberThread implements Runnable{
+//     private int a;
+//     NumberThread(int a)
+//     {
+//         this.a = a;
+//     }
+//     public void run()
+//     {
+//         for(int i = 1; i <= a; i++)
+//         {
+//             System.out.println(i + " " + Thread.currentThread().getName());
+//         }
+//     }   
+// }
+// class MultiThreading {
+//     public static void main(String[] args) {
+//         Thread t1 = new Thread(new NumberThread(10));
+//         Thread t2 = new Thread(new NumberThread(20));
+//         t1.start();
+//         t2.start();
+//     }
+// }
 
 // Thread -> task + thread both done same thread class.
 // in case Thread we can not use multiple inheritance.
 // Runnable -> task and thread both done by different class.
 // Runnable is interface with help of Runnable we can implements multiple inheritance.
+
+
+// import java.util.*;
+// class NumberThread extends Thread{
+//     private int start;
+//     private int end;
+
+//     NumberThread(int start , int end)
+//     {
+//         this.start = start;
+//         this.end = end;
+//     }
+//     public void run()
+//     {
+//         for(int i = start; i <= end; i++)
+//         {
+//             System.out.println(i + " print by " + Thread.currentThread().getName());
+//         }
+//     }   
+// }
+// class MultiThreading {
+//     public static void main(String[] args) throws InterruptedException {
+//         Thread t1 = new NumberThread(1,50);
+//         Thread t2 = new NumberThread(51,100);
+//         t1.start();
+//         t1.join();
+
+//         t2.start();
+//         t2.join();
+//     }
+// }
+
+
+// import java.util.*;
+// class NumberThread implements Runnable{
+//     private int start;
+//     private int end;
+
+//     NumberThread(int start , int end)
+//     {
+//         this.start = start;
+//         this.end = end;
+//     }
+//     public void run()
+//     {
+//         for(int i = start; i <= end; i++)
+//         {
+//             System.out.println(i + " print by " + Thread.currentThread().getName());
+//         }
+//     }   
+// }
+// class MultiThreading {
+//     public static void main(String[] args) throws InterruptedException {
+//         Thread t1 = new Thread(new NumberThread(1,50));
+//         Thread t2 = new Thread(new NumberThread(51,100));
+//         t1.start();
+//         t1.join();
+
+//         t2.start();
+//         t2.join();
+//     }
+// }

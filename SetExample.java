@@ -32,22 +32,26 @@
 //         System.out.println(set);
 //     }
 // }
-
-
-
 import java.util.*;
-class SetExample{
+
+class SetExample {
     public static void main(String[] args) {
-        Scanner sc = new Scanner();
+
+        Scanner sc = new Scanner(System.in); // ✔ correct
+
         System.out.println("Enter the value of n : ");
         int n = sc.nextInt();
-        Set<Integer>set = new HashSet<>() ;
 
-        System.out.println("Enter the n element: ");
-        for(int i=0;i<n;i++){
+        Set<Integer> set = new HashSet<>();
+
+        System.out.println("Enter the n elements: ");
+        for(int i = 0; i < n; i++){
             int data = sc.nextInt();
             set.add(data);
         }
-        System.out.println("Unique no of element is "+set.size());
-   }
+
+        System.out.println("Unique no of elements is " + set.size());
+
+        sc.close(); // ✔ good practice
+    }
 }
